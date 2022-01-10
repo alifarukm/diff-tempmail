@@ -1,0 +1,11 @@
+{
+  "name": "onesec-tempmail",
+  "version": "1.0.0",
+  "description": "1secmail.com helper for show mail list and get detail them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "author": "Ali Faruk Küçükmumcu",
+  "license": "MIT"
+}
