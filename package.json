@@ -1,7 +1,7 @@
 {
-  "name": "onesec-tempmail",
-  "version": "1.1.0",
-  "description": "1secmail.com helper for show mail list and get detail them.",
+  "name": "diff-tempmail",
+  "version": "1.2.0",
+  "description": "Temp mails helper for show mail list and get detail them. Available temp mail providers -> 1secmail, tempmail",
   "main": "index.js",
   "scripts": {
     "test": "echo \"No test specified\""
@@ -9,6 +9,7 @@
   "author": "Ali Faruk Küçükmumcu",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "crypto": "^1.0.1"
   }
 }
