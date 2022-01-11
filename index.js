@@ -1,19 +1,16 @@
-const https = require('https');
+const axios = require('axios').default;
 
 class OneSecMail {
+  _url = 'https://www.1secmail.com';
   constructor(mail) {
     this._mail = mail;
   }
 
   mails = async () => {
-    const options = {
-      hostname: 'www.1secmail.com',
-      port: 443,
-      path: `/api/v1/?action=getMessages&login=${this._mail}&domain=1secmail.com`,
-      method: 'GET',
-    };
+    const path = `/api/v1/?action=getMessages&login=${this._mail}&domain=1secmail.com`;
 
-    const result = await this._request(options, {});
+    const result = await axios.get(this._url + path);
+
     return result;
   };
 
@@ -29,46 +26,12 @@ class OneSecMail {
    * @return {Promise} a promise of request
    */
   mailDetail = async (id) => {
-    const options = {
-      hostname: 'www.1secmail.com',
-      port: 443,
-      path: `/api/v1/?action=readMessage&login=${this._mail}&domain=1secmail.com&id=${id}`,
-      method: 'GET',
-    };
+    const path = `/api/v1/?action=readMessage&login=${this._mail}&domain=1secmail.com&id=${id}`;
 
-    const result = await this._request(options, {});
+    const result = await axios.get(this._url + path);
+
     return result;
   };
-
-  /**
-   * Do a request with options provided.
-   *
-   * @param {Object} options
-   * @param {Object} data
-   * @return {Promise} a promise of request
-   */
-  _request(options, data) {
-    return new Promise((resolve, reject) => {
-      const req = https.request(options, (res) => {
-        res.setEncoding('utf8');
-        let responseBody = '';
-
-        res.on('data', (chunk) => {
-          responseBody += chunk;
-        });
-
-        res.on('end', () => {
-          resolve(JSON.parse(responseBody));
-        });
-      });
-
-      req.on('error', (err) => {
-        reject(err);
-      });
-
-      req.end();
-    });
-  }
 }
 
 module.exports = OneSecMail;

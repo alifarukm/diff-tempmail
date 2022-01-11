@@ -7,5 +7,8 @@
     "test": "echo \"No test specified\""
   },
   "author": "Ali Faruk Küçükmumcu",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
 }
