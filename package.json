@@ -1,6 +1,6 @@
 {
   "name": "onesec-tempmail",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "1secmail.com helper for show mail list and get detail them.",
   "main": "index.js",
   "scripts": {
