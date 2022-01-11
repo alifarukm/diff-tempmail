@@ -1,6 +1,6 @@
 {
   "name": "diff-tempmail",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Temp mails helper for show mail list and get detail them. Available temp mail providers -> 1secmail, tempmail",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
-    "crypto": "^1.0.1"
+    "crypto-js": "^4.1.1"
   }
 }

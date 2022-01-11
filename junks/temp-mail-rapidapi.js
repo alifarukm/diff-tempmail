@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const crypto = require('crypto');
+const CryptoJS = require('crypto-js');
 
 class TempMail {
   constructor(privateKey) {
@@ -83,7 +83,7 @@ class TempMail {
    * @returns {string}
    */
   getEmailHash = (email) => {
-    return crypto.createHash('md5').update(email).digest('hex');
+    return CryptoJS.MD5(email).toString(CryptoJS.enc.Hex);
   };
 
   /**
@@ -102,10 +102,7 @@ class TempMail {
 
     const domain = domains[Math.floor(Math.random() * domains.length)];
 
-    const hash = crypto
-      .createHash('md5')
-      .update(email + domain)
-      .digest('hex');
+    const hash = this.getEmailHash(email + domains);
 
     return {
       email: email + domain,
